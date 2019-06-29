@@ -46,7 +46,7 @@ class NewUserPage extends React.Component {
     return (
       <div>
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-          <Form.Item label="Name">
+          <Form.Item label="Name" style={{ width: '80%' }}>
             {getFieldDecorator('name', {
               rules: [
                 {
@@ -55,21 +55,21 @@ class NewUserPage extends React.Component {
                   whitespace: true,
                 },
               ],
-            })(<Input />)}
+            })(<Input placeholder="name" />)}
           </Form.Item>
-          <Form.Item label="UserName">
+          <Form.Item label="UserName" style={{ width: '80%' }}>
             {getFieldDecorator('username', {
               rules: [
                 {
                   required: true,
-                  message: 'Please input your name!',
+                  message: 'Please input your username!',
                   whitespace: true,
                 },
               ],
-            })(<Input />)}
+            })(<Input placeholder="username" />)}
           </Form.Item>
 
-          <Form.Item label="E-mail">
+          <Form.Item label="E-mail" style={{ width: '80%' }}>
             {getFieldDecorator('email', {
               rules: [
                 {
@@ -81,22 +81,79 @@ class NewUserPage extends React.Component {
                   message: 'Please input your E-mail!',
                 },
               ],
-            })(<Input />)}
+            })(<Input placeholder="Email address" />)}
           </Form.Item>
 
-          <Form.Item label="Phone">
+          <Form.Item label="Phone" style={{ width: '80%' }}>
             {getFieldDecorator('phone', {
               rules: [{ required: true, message: 'Please input your phone number!' }],
-            })(<Input />)}
+            })(<Input placeholder="Phone" />)}
           </Form.Item>
 
-          <Form.Item label="Website">
+          <Form.Item label="Address" style={{ marginBottom: 0, width: '80%' }} required>
+            <Form.Item style={{ display: 'inline-block', width: '27%' }}>
+              {getFieldDecorator('address.street', {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please input your street!',
+                    whitespace: true,
+                  },
+                ],
+              })(<Input placeholder="street" />)}
+            </Form.Item>
+            <span style={{ display: 'inline-block', width: '1%' }} />
+            <Form.Item style={{ display: 'inline-block', width: '25%' }}>
+              {getFieldDecorator('address.city', {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please input your city!',
+                    whitespace: true,
+                  },
+                ],
+              })(<Input placeholder="city" />)}
+            </Form.Item>
+            <span style={{ display: 'inline-block', width: '1%' }} />
+            <Form.Item style={{ display: 'inline-block', width: '25%' }}>
+              {getFieldDecorator('address.suite', {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please input your suite !',
+                    whitespace: true,
+                  },
+                ],
+              })(<Input placeholder="suite" />)}
+            </Form.Item>
+            <span style={{ display: 'inline-block', width: '1%' }} />
+            <Form.Item style={{ display: 'inline-block', width: '20%' }}>
+              {getFieldDecorator('address.zipcode', {
+                rules: [
+                  {
+                    required: true,
+                    message: 'Please input your zipcode !',
+                    whitespace: true,
+                  },
+                ],
+              })(<Input placeholder="zipcode" />)}
+            </Form.Item>
+          </Form.Item>
+
+          <Form.Item label="Website" style={{ width: '80%' }}>
             {getFieldDecorator('website', {
               rules: [{ required: true, message: 'Please input website!' }],
-            })(<Input />)}
+            })(<Input placeholder="website" />)}
           </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
+
+          <Form.Item label="Company" style={{ width: '80%' }}>
+            {getFieldDecorator('company.name', {
+              rules: [{ required: true, message: 'Please input your Compant name!' }],
+            })(<Input placeholder="company name" />)}
+          </Form.Item>
+
+          <Form.Item {...tailFormItemLayout} style={{ width: '80%' }}>
+            <Button type="primary" htmlType="submit" style={{ marginLeft: '250px' }}>
               Register
             </Button>
           </Form.Item>
